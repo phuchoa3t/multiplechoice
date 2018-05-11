@@ -80,7 +80,7 @@ class HomeController extends FrontendController
 
 	public function actionCauhoi()
 	{
-		$st = Yii::app()->session['st'];
+        $st = Yii::app()->session['st'];
 		$bt = Yii::app()->session['bt'];
 		if($st == null || $bt ==null){
 			Yii::app()->user->setFlash('error', "Có lỗi xảy ra. Bạn vui lòng nhập mã sinh viên và họ tên để làm bài !");
@@ -119,7 +119,7 @@ class HomeController extends FrontendController
 
 		$ec_ids_string = explode(",", $bt->attributes['ec_id']);
 		$ec_id = $ec_ids_string[array_rand($ec_ids_string)];
-		if($studentQuestions == null || !is_array($studentQuestions) || !isset($studentQuestions[$st->attributes['st_code']])){
+		if(true || $studentQuestions == null || !is_array($studentQuestions) || !isset($studentQuestions[$st->attributes['st_code']])){
 			$qsAll = [];
 			$listenQuestions = [];
 			if($bt->attributes['sj_id'] == 1 )
@@ -233,7 +233,6 @@ class HomeController extends FrontendController
 			$model->b_id = $bt->attributes['b_id'];
 			$model->ec_id = $ec_id;
 			$model->data = json_encode($questionIds);
-			$model->save();
 			if($bt->attributes['sj_id'] == 1 )
 			{
 				$point = $model->getResultTOEIC();

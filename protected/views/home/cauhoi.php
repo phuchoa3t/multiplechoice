@@ -201,12 +201,11 @@
 
 					?>
 <?php if($part != null): ?>
-									<h4 id="<?php echo "p_".$p_num; ?>" class="pnote" style="    color: #20314b;
-    font-size: 22px;"><?php echo $part->p_note ;?></h4>
+									<div id="<?php echo "p_".$p_num; ?>" class="pnote" style="    color: #20314b;
+    font-size: 22px;"><?php echo $part->p_note ;?></div>
 
-									<h4 style="    color: #20314b;
-    font-weight: bold;
-    font-size: 22px;text-align: center;"><?php echo $part->p_name ;?></h4>
+									<div style="
+    font-size: 22px;text-align: center;"><?php echo $part->p_name ;?></div>
 								<?php endif; ?>
 								<?php if(trim($value->qs_note) != ""): ?>
 

@@ -28,7 +28,30 @@
 		<label class="col-sm-3 control-label"><?php echo $form->labelEx($model,'p_name'); ?>
 </label>
 		<div class="col-sm-5">
-			<?php echo $form->textArea($model,'p_name',array('rows'=>6, 'cols'=>50, 'class'=>'form-control')); ?>
+            <?php
+            $this->widget('ext.redactor.ERedactorWidget',array(
+                'model'=>$model,
+                'attribute'=>'p_name',
+                'options'=>array(
+                    'fileUpload'=>Yii::app()->createUrl('file/fileUpload',array(
+                        'attr'=>'part'
+                    )),
+                    'fileUploadErrorCallback'=>new CJavaScriptExpression(
+                        'function(obj,json) { toastr.error(json.error); }'
+                    ),
+                    'imageUpload'=>Yii::app()->createUrl('file/imageUpload',array(
+                        'attr'=>'part'
+                    )),
+                    'imageGetJson'=>Yii::app()->createUrl('file/imageList',array(
+                        'attr'=>'part'
+                    )),
+                    'imageUploadErrorCallback'=>new CJavaScriptExpression(
+                        'function(obj,json) { toastr.error(json.error); }'
+                    ),
+                )
+            ));
+            ?>
+<!--			--><?php //echo $form->textArea($model,'p_name',array('rows'=>6, 'cols'=>50, 'class'=>'form-control')); ?>
 			<?php echo $form->error($model,'p_name'); ?>
 		</div>
 	</div>
