@@ -143,7 +143,7 @@ class QuestionController extends Controller
 		{
 			$model->attributes=$_POST['Question'];
 			if($model->save())
-				$this->redirect(array('update','id'=>$model->qs_id + 1));
+				$this->redirect(array('view','id'=>$model->qs_id));
 		}
 
 		$this->render('update',array(

@@ -119,7 +119,7 @@ class HomeController extends FrontendController
 
 		$ec_ids_string = explode(",", $bt->attributes['ec_id']);
 		$ec_id = $ec_ids_string[array_rand($ec_ids_string)];
-		if(true || $studentQuestions == null || !is_array($studentQuestions) || !isset($studentQuestions[$st->attributes['st_code']])){
+		if($studentQuestions == null || !is_array($studentQuestions) || !isset($studentQuestions[$st->attributes['st_code']])){
 			$qsAll = [];
 			$listenQuestions = [];
 			if($bt->attributes['sj_id'] == 1 )
