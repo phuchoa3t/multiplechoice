@@ -1,2 +1,0 @@
-alert("l")
-fsdfdsfd
